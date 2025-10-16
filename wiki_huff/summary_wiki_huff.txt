@@ -1,0 +1,13 @@
+=== Huffman Compression Summary: wiki_huff ===
+
+File size: 33244 characters
+Unique characters: 102
+Runtime: 0.0319 seconds
+Decoded correctly: True
+
+ASCII bits: 265,952
+Fixed bits: 232,708
+Huffman bits: 163,288
+
+Compression ratio (Huffman/ASCII): 0.6140
+Compression ratio (Huffman/Fixed): 0.7017
