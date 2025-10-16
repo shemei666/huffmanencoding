@@ -1,0 +1,13 @@
+=== Huffman Compression Summary: alice29 ===
+
+File size: 148481 characters
+Unique characters: 73
+Runtime: 0.0980 seconds
+Decoded correctly: True
+
+ASCII bits: 1,187,848
+Fixed bits: 1,039,367
+Huffman bits: 676,374
+
+Compression ratio (Huffman/ASCII): 0.5694
+Compression ratio (Huffman/Fixed): 0.6508
