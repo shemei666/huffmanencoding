@@ -40,7 +40,7 @@ class Node:
         return f"[{self.left.__str__()},{self.right.__str__()}]"
 
 
-def get_frequency_heap(text):
+def get_frequency_table(text):
     """
     Calculates the frequency of each character in the text and creates a min-heap
     of leaf Node objects, one for each unique character.
@@ -50,17 +50,13 @@ def get_frequency_heap(text):
     """
     freq_dict = {}
     heap = []
-    # 1. Count character frequencies
+    # Count character frequencies
     for char in text:
         if char in freq_dict:
             freq_dict[char] += 1
         else:
             freq_dict[char] = 1
-    # 2. Create a Node for each unique character and push it onto the min-heap
-    for char, freq in freq_dict.items():
-        node = Node(char, freq, None, None)
-        heapq.heappush(heap, node)
-    return heap
+    return freq_dict
 
 
 def huffman_tree(text):
@@ -70,7 +66,9 @@ def huffman_tree(text):
     :param text: The input string.
     :return: The root Node of the final Huffman tree, or None if the text is empty.
     """
-    min_heap = get_frequency_heap(text)
+    # Creates frequency table then heapifies it.
+    min_heap = get_frequencytable(text)
+    heapq.heapify(min_heap)
     if not min_heap:
         return None  # Handle empty input text
 
