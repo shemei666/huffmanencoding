@@ -35,7 +35,7 @@ cd huffmanencoding
 2. (Optional) Create and activate a virtual environment:
 3. Install dependencies:
 ```bash
-pip install jupyterlab notebook numpy matplotlib pandas
+pip install notebook numpy matplotlib networkx
 ```
 4. Start Jupyter Notebook:
 
