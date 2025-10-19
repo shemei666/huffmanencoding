@@ -56,7 +56,7 @@ cd huffmanencoding
 ```
 2. Now use the command below to run the code
 ```bash
-python main.py [-h] [--hcode HCODE] file output
+python main.py [-h] [--hcode HCODE] file output [code]
 
 positional arguments:
   file           input file
