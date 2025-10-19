@@ -159,8 +159,8 @@ parser.add_argument("file", help="input file")
 group = parser.add_mutually_exclusive_group()
 group.add_argument("--hcode", help="huffman tree")
 parser.add_argument("output", help="output file", default="out.txt")
+parser.add_argument("code", nargs="?", help="output code file", default="out.json")
 args = parser.parse_args()
-print(args.hcode)
 with open(args.file, "r", encoding="utf-8") as f:
     t = f.read()
     if args.hcode:
