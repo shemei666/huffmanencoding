@@ -65,10 +65,10 @@ positional arguments:
 
 options:
   -h, --help     show this help message and exit
-  --hcode HCODE  huffman tree
+  --hcode HCODE  huffman code
 ```
 ### Example usages
-Example usage to encode a text file `a.txt` and get output text `out.txt` and code_dict `code.json`
+Example usage to encode a text file `a.txt` and get output text `out.txt` and Huffman code `code.json`
 
 ```bash
 python main.py a.txt out.txt code.json

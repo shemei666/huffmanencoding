@@ -157,7 +157,7 @@ def huffman_decode(code, dict):
 parser = argparse.ArgumentParser()
 parser.add_argument("file", help="input file")
 group = parser.add_mutually_exclusive_group()
-group.add_argument("--hcode", help="huffman tree")
+group.add_argument("--hcode", help="huffman code")
 parser.add_argument("output", help="output file", default="out.txt")
 parser.add_argument("code", nargs="?", help="output code file", default="out.json")
 args = parser.parse_args()
