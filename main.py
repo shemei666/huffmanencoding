@@ -1,4 +1,6 @@
 import heapq
+import argparse
+import json
 
 
 class Node:
@@ -67,7 +69,10 @@ def huffman_tree(text):
     :return: The root Node of the final Huffman tree, or None if the text is empty.
     """
     # Creates frequency table then heapifies it.
-    min_heap = get_frequencytable(text)
+    min_heap = [
+        Node(letter, freq, None, None)
+        for letter, freq in get_frequency_table(text).items()
+    ]
     heapq.heapify(min_heap)
     if not min_heap:
         return None  # Handle empty input text
@@ -148,14 +153,25 @@ def huffman_decode(code, dict):
     return decoded
 
 
-tree = huffman_tree(t)
-print(tree)
-
-
-dict = huffman_dict(tree)
-print(dict)
-
-encoded = huffman_encode(t, dict)
-print(encoded, len(encoded))
-decoded = huffman_decode(encoded, dict)
-# print(decoded)
+# To take inputs from commandline using argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("file", help="input file")
+group = parser.add_mutually_exclusive_group()
+group.add_argument("--hcode", help="huffman tree")
+parser.add_argument("output", help="output file", default="out.txt")
+args = parser.parse_args()
+print(args.hcode)
+with open(args.file, "r", encoding="utf-8") as f:
+    t = f.read()
+    if args.hcode:
+        with open(args.hcode, "r", encoding="utf-8") as k:
+            code = json.loads(k.read())
+        out = huffman_decode(t, code)
+    else:
+        tree = huffman_tree(t)
+        code = huffman_dict(tree)
+        out = huffman_encode(t, code)
+        with open(args.code, "w", encoding="utf-8") as h:
+            h.write(json.dumps(code))
+    with open(args.output, "w", encoding="utf-8") as g:
+        g.write(out)
